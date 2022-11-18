@@ -38,17 +38,6 @@ except URLerror as e:
     streamlit.error()
  
 
-#added a text entry box
-
-streamlit.write('The user entered ', fruit_choice)
-
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+ "kiwi")
-
-# write your own comment -what does the next line do? 
-fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
-# write your own comment - what does this do?
-streamlit.dataframe(fruityvice_normalized)
-
 streamlit.stop()
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
